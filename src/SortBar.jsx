@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'
 
 const SortBar = ({ onSortChange, onClassFilterChange }) => {
   const [selectedClass, setSelectedClass] = useState('');

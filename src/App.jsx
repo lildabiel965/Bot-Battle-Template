@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import BotCollection from './BotCollection';
 import YourBotArmy from './YourBotArmy';
-import SortBar from './SortBar';
+// import SortBar from './SortBar';
+import './App.css'
 
 function App() {
   const [bots, setBots] = useState([]);
@@ -14,7 +15,10 @@ function App() {
         if (!response.ok) throw new Error("Failed to fetch bots");
         return response.json();
       })
-      .then((data) => setBots(data))
+      .then((data) => {
+        const limitedBots = data.slice(0, 10);
+        setBots(limitedBots);
+      })
       .catch((error) => console.error("Error fetching bots:", error));
   }, []);
 
@@ -50,8 +54,6 @@ function App() {
       {/* Render YourBotArmy */}
       <YourBotArmy army={army} dischargeBot={dischargeBot} deleteBot={deleteBot} />
 
-      {/* Render SortBar */}
-      <SortBar />
     </div>
   );
 }

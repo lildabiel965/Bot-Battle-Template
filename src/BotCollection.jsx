@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BotCard from './BotCard';
 import SortBar from './SortBar';
+import './App.css'
 
 const BotCollection = () => {
   const [bots, setBots] = useState([]);
