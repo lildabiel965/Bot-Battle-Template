@@ -35,7 +35,7 @@ function App() {
 
   // Delete a bot from both army and collection
   const deleteBot = (id) => {
-    fetch(`http://localhost:3000/bots/${id}`, { method: 'DELETE' })
+    fetch(`https://bots-si0g.onrender.com/bots/${id}`, { method: 'DELETE' })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to delete bot");
         setArmy(army.filter((bot) => bot.id !== id));
